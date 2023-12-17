@@ -6,13 +6,13 @@ const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorhandler } = require("./middleWares/errorMiddleWares");
-// const path = require("path");
 const path = require("path");
 
 dotenv.config();
-connectDB();
 
+connectDB();
 const app = express();
+
 app.use(express.json()); // to accept json data
 
 app.get("/", (req, res) => {
