@@ -22,24 +22,6 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 // ---------------------deployment-----------------------
-const __dirname1 = path.resolve(); // Assuming this is one level above your server file.
-
-console.log("NODE_ENV:", process.env.NODE_ENV); // Check the NODE_ENV value
-
-if (process.env.NODE_ENV === "production") {
-  console.log("Serving production build");
-  console.log("__dirname1:", __dirname1);
-
-  app.use(express.static(path.join(__dirname1, "/frontend/build")));
-
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
-  );
-} else {
-  app.get("/", (req, res) => {
-    res.send("API is running..");
-  });
-}
 
 // app.use(notFound);
 // app.use(errorhandler);
